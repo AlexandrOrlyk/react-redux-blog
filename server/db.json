@@ -1,0 +1,34 @@
+{
+    "posts": [
+        {
+            "id": 1,
+            "title": "json-server",
+            "author": "Alex",
+            "body": "ljflsdjfklsdj",
+            "date": "23/10/2017",
+            "category": "IT"
+        },
+        {
+            "id": 2,
+            "title": "axious",
+            "author": "Max",
+            "body": "dsfasdfasdf",
+            "date": "12/12/2012",
+            "category": "IT"
+        },
+        {
+            "id": 3,
+            "title": "jest",
+            "author": "Alex",
+            "body": "afasdfasdfasd",
+            "date": "12/12/17",
+            "category": "IT"
+        }
+    ],
+    "categories": [
+        {
+            "id": 1,
+            "name": "IT"
+        }
+    ]
+}
