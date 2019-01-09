@@ -1,34 +1,138 @@
 {
-    "posts": [
-        {
-            "id": 1,
-            "title": "json-server",
-            "author": "Alex",
-            "body": "ljflsdjfklsdj",
-            "date": "23/10/2017",
-            "category": "IT"
-        },
-        {
-            "id": 2,
-            "title": "axious",
-            "author": "Max",
-            "body": "dsfasdfasdf",
-            "date": "12/12/2012",
-            "category": "IT"
-        },
-        {
-            "id": 3,
-            "title": "jest",
-            "author": "Alex",
-            "body": "afasdfasdfasd",
-            "date": "12/12/17",
-            "category": "IT"
-        }
-    ],
-    "categories": [
-        {
-            "id": 1,
-            "name": "IT"
-        }
-    ]
+  "posts": [
+    {
+      "title": "Family Guy (Season 1)",
+      "author": "Max",
+      "date": "2018-12-17T22:00:00.000Z",
+      "body": "<p><em>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</em></p>",
+      "category": "Films",
+      "id": 5
+    },
+    {
+      "title": "First site",
+      "author": "Andy",
+      "date": "2018-11-04T22:00:00.000Z",
+      "body": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+      "category": "",
+      "id": 7
+    },
+    {
+      "title": "React",
+      "author": "Dan",
+      "date": "2018-12-27T19:28:41.070Z",
+      "body": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+      "category": "",
+      "id": 8
+    },
+    {
+      "title": "Rick and Morty",
+      "author": "Alex",
+      "date": "2018-09-03T21:00:00.000Z",
+      "body": "<p>Lorem ipsum <strong>dolor sit amet, con</strong>sectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>",
+      "category": "Films",
+      "id": 9
+    },
+    {
+      "title": "Muscles (Arms)",
+      "author": "Ann",
+      "date": "2017-03-27T21:00:00.000Z",
+      "body": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+      "category": "Fitness",
+      "id": 10
+    },
+    {
+      "title": "Egypt",
+      "author": "Dasha",
+      "date": "2016-02-29T22:00:00.000Z",
+      "body": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+      "category": "Travels",
+      "id": 11
+    },
+    {
+      "title": "Fander",
+      "author": "Felix",
+      "date": "2018-12-27T19:31:25.238Z",
+      "body": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+      "category": "Films",
+      "id": 12
+    },
+    {
+      "title": "Migration",
+      "author": "Valentina",
+      "date": "2018-12-26T22:00:00.000Z",
+      "body": "<p>Lorem i<strong>psum </strong>dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>",
+      "category": "Economy",
+      "id": 13
+    },
+    {
+      "title": "August",
+      "author": "Rush",
+      "date": "2018-09-03T21:00:00.000Z",
+      "body": "<p><em>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</em></p>",
+      "category": "Films",
+      "id": 14
+    },
+    {
+      "title": "Bubble",
+      "author": "Jim",
+      "date": "2019-01-09T08:51:04.017Z",
+      "body": "<p><em>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</em></p>",
+      "category": "",
+      "id": 15
+    }
+  ],
+  "categories": [
+    {
+      "id": 1,
+      "name": "IT"
+    },
+    {
+      "id": 2,
+      "name": "Economy"
+    },
+    {
+      "id": 3,
+      "name": "Psyhology"
+    },
+    {
+      "id": 4,
+      "name": "Education"
+    },
+    {
+      "id": 5,
+      "name": "Fitness"
+    },
+    {
+      "id": 6,
+      "name": "Films"
+    },
+    {
+      "id": 7,
+      "name": "Games"
+    },
+    {
+      "id": 8,
+      "name": "Travels"
+    },
+    {
+      "id": 9,
+      "name": "Books"
+    },
+    {
+      "id": 10,
+      "name": "Photos"
+    },
+    {
+      "id": 11,
+      "name": "Iphone"
+    },
+    {
+      "id": 12,
+      "name": "Haxball"
+    },
+    {
+      "id": 13,
+      "name": "React"
+    }
+  ]
 }

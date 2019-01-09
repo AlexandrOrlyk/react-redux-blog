@@ -1,0 +1,19 @@
+
+.btn{
+    margin: 1px;
+    padding-top: 35%;
+    display: block;
+}
+
+
+.btnstyle{
+    width: 390px;
+    height: 290px;
+    margin: 0;
+    position: relative;
+    top: 47%;
+    left: 50%;
+    margin-right: -50%;
+    transform: translate(-50%, -50%);
+    border-radius: 50%;
+}

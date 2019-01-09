@@ -1,35 +1,40 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { getPosts } from '../actions/posts'
+import { getCategories } from '../actions/categories'
 import Header from './Header'
-import Main from './main'
-
-
+import { BrowserRouter } from 'react-router-dom'
+import Sidebar from './Sidebar'
+import Routing from './routing'
+import 'font-awesome/css/font-awesome.min.css'
 
 class App extends Component {
 
-
-    getPosts = () => {
-
+    componentDidMount=()=>{
+        this.props.getPosts()
+        this.props.getCategories()
     }
+
     render() {
 
         return (
-            <div>
-
-                <Header />
-               <Main />
-
-                {/* <ul> 
-                    {
-                        this.props.posts.loaded && this.props.posts.list.map((p)=> (
-                              <li>{p.title}</li>
-                        )) 
-                    }
-                  
-                </ul>
-                <button onClick={this.props.getPosts}>get all posts</button> */}
-            </div>
+            <React.Fragment>
+                <BrowserRouter>
+                    <div>
+                        <Header />
+                        <div className='container-fluid'>
+                            <div className='row'>
+                                <div className='col-md-2' style={{margin:'5px 0 0 0', padding: 0, backgroundColor: '#cccccc'}}>
+                                    <Sidebar />
+                                </div>
+                                <div className='col-md-10' style={{margin:'5px 0 0 0', padding: 0, backgroundColor: '#f2f2f2', borderLeft: '10px solid white'}}>
+                                   <Routing />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </BrowserRouter>
+            </React.Fragment>
         );
     }
 }
@@ -40,6 +45,7 @@ const putStateToProps = (store, ownprops) => ({
 
 const mapDispatchProps = (dispatch) => ({
     getPosts: () => dispatch(getPosts()),
+    getCategories: () => dispatch(getCategories())
 })
 
 
