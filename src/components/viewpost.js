@@ -10,6 +10,13 @@ class ViewPost extends Component {
         post: this.props.currentPost
     };
     
+    componentWillReceiveProps =(nextProps)=>{    
+        if(this.props.match.params.id  && !this.props.posts.loaded && nextProps.posts.loaded){
+            let currentPost = nextProps.posts.list.find(div => div.id === parseInt(this.props.match.params.id, 10))
+            this.setState({post : currentPost})
+        }
+    }
+    
     render() {
         
         const { post } = this.state;    

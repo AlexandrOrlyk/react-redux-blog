@@ -14,12 +14,17 @@ class Categories extends Component {
 			name: '',
 		}
 	};
+	
 
-	toggle = () => {
+	toggle = (e) => {
+		let {category}=this.state
+		
 		this.setState({
-			modal: !this.state.modal
+			modal: !this.state.modal,
+			category
 		});
 	}
+
 	onChangeValue = (e) => {
 		let { category } = this.state;
 		let { value } = e.target;
@@ -28,8 +33,6 @@ class Categories extends Component {
 			category
 		})
 	}
-
-
 
 	onHandleSubmit = () => {
 		let { category } = this.state;
@@ -43,8 +46,6 @@ class Categories extends Component {
 			}
 		});
 	}
-
-
 
 	render() {
 		const { category } = this.state
@@ -78,7 +79,6 @@ class Categories extends Component {
 								</td>
 							</tr>
 						</tbody>))}
-						
 				</Table>
 				<hr />
 					<button className="btn btn-sm btn-outline-success " onClick={this.toggle}><i className="fa fa-plus">  Add category</i></button>

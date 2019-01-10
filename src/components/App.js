@@ -24,10 +24,10 @@ class App extends Component {
                         <Header />
                         <div className='container-fluid'>
                             <div className='row'>
-                                <div className='col-md-2' style={{margin:'5px 0 0 0', padding: 0, backgroundColor: '#cccccc'}}>
+                                <div className='col-md-2' style={{margin:'5px 0 0 0', padding: 0, backgroundColor: '#cccccc', minHeight: 1000}}>
                                     <Sidebar />
                                 </div>
-                                <div className='col-md-10' style={{margin:'5px 0 0 0', padding: 0, backgroundColor: '#f2f2f2', borderLeft: '10px solid white'}}>
+                                <div className='col-md-10' style={{margin:'5px 0 0 0', padding: 0, backgroundColor: '#f2f2f2', minHeight: 1000, borderLeft: '10px solid white'}}>
                                    <Routing />
                                 </div>
                             </div>

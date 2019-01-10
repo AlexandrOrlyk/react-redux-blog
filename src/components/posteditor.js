@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import ReactQuill from 'react-quill'
 import 'react-quill/dist/quill.snow.css'
+
 //import './posteditor.css'
 import DatePicker from "react-datepicker";
 import moment from 'moment'
@@ -9,7 +10,8 @@ import "react-datepicker/dist/react-datepicker.css";
 import { addPost, editPost } from '../actions/posts';
 import 'react-quill/dist/quill.snow.css'
 
-class PostEditor extends Component {
+class PostEditor extends Component {   
+
     state = {
         post: this.props.currentPost !== null ?
             this.props.currentPost :
@@ -22,6 +24,15 @@ class PostEditor extends Component {
             }
     };
 
+    //Fixing error after update page
+     //this.props.match.params.id - Error checking when creating a new post 
+    componentWillReceiveProps =(nextProps)=>{
+    
+        if(this.props.match.params.id  && !this.props.posts.loaded && nextProps.posts.loaded){
+            let currentPost = nextProps.posts.list.find(div => div.id === parseInt(this.props.match.params.id, 10))
+            this.setState({post : currentPost})
+        }
+    }
 
     dataHandleChange = (e) => {
         let { post } = this.state;
@@ -41,6 +52,7 @@ class PostEditor extends Component {
             post
         });
     }
+
     onChangeBody =(e)=>{
         let { post } = this.state;
         post.body = e
@@ -57,6 +69,7 @@ class PostEditor extends Component {
             post
         })
     }
+
     handleChange = (e) => {
         this.setState({ value: e.target.value });
     };
@@ -85,6 +98,7 @@ class PostEditor extends Component {
                         aria-label="Sizing example input"
                         aria-describedby="inputGroup-sizing-default"
                         value={post.title}
+                        maxLength = {25}
                         onChange={(e) => this.onChangeValue(e)}
                     />
                 </div>
@@ -97,6 +111,7 @@ class PostEditor extends Component {
                         aria-label="Sizing example input"
                         aria-describedby="inputGroup-sizing-default"
                         value={post.author}
+                        maxLength = {25}
                         onChange={(e) => this.onChangeValue(e)}
                     />
                 </div>
@@ -108,8 +123,8 @@ class PostEditor extends Component {
                         value={post.date.format('DD-MM-YYYY')}
                     />
                 </div>
-
                 <div>
+
                     <h4>Post</h4>
                     <ReactQuill
                         name='body'
@@ -118,9 +133,8 @@ class PostEditor extends Component {
                         placeholder='Enter text'
                         value={post.body}
                         onChange={(e) => this.onChangeBody(e)}
-                    /> 
-                   
-                    
+                        maxLength = {25}
+                    />                     
                 </div>
                 <div>
                     <h4>Categories</h4>
@@ -139,7 +153,7 @@ class PostEditor extends Component {
                     onClick={this.onHandleSubmit}
                     type="button"
                     className="btn btn-sm btn-outline-primary"
-                    style={{ margin: '10px' }}><i className="fa fa-paper-plane-o" ariaHidden="true"></i>  Submit
+                    style={{ margin: '10px' }}><i className="fa fa-paper-plane-o" aria-hidden="true"></i>  Submit
                     </button>
             </div>
         );
@@ -166,13 +180,15 @@ PostEditor.formats = [
     'code-block'
 ]
 
+//check whether it is caught with a click id, which will allow you to understand to create a new post if the id was not detected or edited post
+// loaded post and categories
 const putStateToProps = (store, ownprops) => ({
     currentPost: store.posts.loaded && ownprops.match.params.id ? store.posts.list.find(div => div.id === parseInt(ownprops.match.params.id, 10)) : null,
     posts: store.posts,
     categories: store.categories
 })
 
-
+//
 const mapDispatchProps = (dispatch) => ({
     addPost: (post) => dispatch(addPost(post)),
     editPost: (post) => dispatch(editPost(post))
