@@ -14,14 +14,16 @@ class Categories extends Component {
 			name: '',
 		}
 	};
+
 	
 
-	toggle = (e) => {
-		let {category}=this.state
-		
+	toggle = (id, name) => {
 		this.setState({
-			modal: !this.state.modal,
-			category
+			modal: true,
+			category:{
+				id: id,
+				name: name,
+			}
 		});
 	}
 
@@ -36,7 +38,9 @@ class Categories extends Component {
 
 	onHandleSubmit = () => {
 		let { category } = this.state;
-		this.props.addCategory(category);
+		category === null ?
+		this.props.addCategory(category) :
+		this.props.editCategory(category)
 		this.setState({
 			modal: false,
 			category:
@@ -48,6 +52,7 @@ class Categories extends Component {
 	}
 
 	render() {
+
 		const { category } = this.state
 		return (
 			<div>
@@ -67,7 +72,7 @@ class Categories extends Component {
 								<td>{category.name}</td>
 								<td>
 									<button
-										onClick={this.toggle}
+										onClick={() => this.toggle(category.id, category.name)}
 										className="btn btn-sm btn-outline-secondary"
 									><i className="fa fa-edit" /></button>
 								</td>
@@ -81,18 +86,18 @@ class Categories extends Component {
 						</tbody>))}
 				</Table>
 				<hr />
-					<button className="btn btn-sm btn-outline-success " onClick={this.toggle}><i className="fa fa-plus">  Add category</i></button>
+				<button className="btn btn-sm btn-outline-success " onClick={this.toggle}><i className="fa fa-plus">  Add category</i></button>
 				<Modal isOpen={this.state.modal} toggle={this.toggle} className={this.props.className}>
 					<ModalHeader toggle={this.toggle}>Modal title</ModalHeader>
 					<ModalBody>
 						<input type='text'
-							name="body"
+							name="body" editCategory
 							value={category.name}
 							onChange={(e) => this.onChangeValue(e)}
 						/>
 					</ModalBody>
 					<ModalFooter>
-						<button  className="btn btn-sm btn-outline-success fa fa-plus" color="primary" onClick={this.onHandleSubmit}>  Add category</button>{' '}
+						<button className="btn btn-sm btn-outline-success fa fa-plus" color="primary" onClick={this.onHandleSubmit}>  Add category</button>{' '}
 						<button className="btn btn-sm btn-outline-danger fa fa-ban" color="secondary" onClick={this.toggle}>  Cancel</button>
 					</ModalFooter>
 				</Modal>

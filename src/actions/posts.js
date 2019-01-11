@@ -1,4 +1,4 @@
-import { ACTION_GET_POSTS, ACTION_ADD_POST, ACTION_DELETE_POST, ACTION_EDIT_POST } from '../index'
+import { ACTION_GET_POSTS, ACTION_ADD_POST, ACTION_DELETE_POST, ACTION_EDIT_POST } from '../reducers/actiontypes'
 import axios from 'axios'
 import moment from 'moment';
 

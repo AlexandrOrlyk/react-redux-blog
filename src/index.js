@@ -16,15 +16,6 @@ const store = createStore(rootReducer, compose(
 
 
 
-export const ACTION_GET_POSTS = 'ACTION_GET_POSTS'
-export const ACTION_EDIT_POST = "ACTION_EDIT_POST"
-export const ACTION_ADD_POST = "ACTION_ADD_POST"
-export const ACTION_DELETE_POST = "ACTION_DELETE_POST"
-
-export const ACTION_GET_CATEGORIES = 'ACTION_GET_CATEGORIES'
-export const ACTION_EDIT_CATEGORY = 'ACTION_EDIT_CATEGORY'
-export const ACTION_ADD_CATEGORY = 'ACTION_ADD_CATEGORY'
-export const ACTION_DELETE_CATEGORY = 'ACTION_DELETE_CATEGORY'
 
 ReactDOM.render(<Provider store={store}><App /></Provider>, document.getElementById('root'));
 

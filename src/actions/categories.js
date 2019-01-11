@@ -1,5 +1,5 @@
 import axios from 'axios'
-import {ACTION_GET_CATEGORIES, ACTION_ADD_CATEGORY, ACTION_DELETE_CATEGORY, ACTION_EDIT_CATEGORY} from '../index'
+import {ACTION_GET_CATEGORIES, ACTION_ADD_CATEGORY, ACTION_DELETE_CATEGORY, ACTION_EDIT_CATEGORY} from '../reducers/actiontypes'
 
 
 export const getCategories = () => {
