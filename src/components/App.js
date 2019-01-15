@@ -5,8 +5,10 @@ import { getCategories } from '../actions/categories'
 import Header from './Header'
 import { BrowserRouter } from 'react-router-dom'
 import Sidebar from './Sidebar'
-import Routing from './routing'
-import 'font-awesome/css/font-awesome.min.css'
+import Routing from './Routing'
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+
 
 class App extends Component {
 
@@ -18,23 +20,24 @@ class App extends Component {
     render() {
 
         return (
-            <React.Fragment>
+            
                 <BrowserRouter>
+                
                     <div>
                         <Header />
                         <div className='container-fluid'>
                             <div className='row'>
-                                <div className='col-md-2' style={{margin:'5px 0 0 0', padding: 0, backgroundColor: '#cccccc', minHeight: 1000}}>
+                                <div className='col-md-2' style={{margin:'5px 0 0 0', padding: 0, backgroundColor: '#cccccc', minHeight: '100%'}}>
                                     <Sidebar />
                                 </div>
-                                <div className='col-md-10' style={{margin:'5px 0 0 0', padding: 0, backgroundColor: '#f2f2f2', minHeight: 1000, borderLeft: '10px solid white'}}>
+                                <div className='col-md-10' style={{margin:'5px 0 0 0', padding: '0 10px 0 0', backgroundColor: '#f2f2f2', minHeight: 1000, borderLeft: '10px solid white'}}>
                                    <Routing />
+                                   <ToastContainer autoClose={800} />
                                 </div>
                             </div>
                         </div>
                     </div>
                 </BrowserRouter>
-            </React.Fragment>
         );
     }
 }

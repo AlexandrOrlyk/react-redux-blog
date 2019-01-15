@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { button, Modal, ModalHeader, ModalBody, ModalFooter, Table } from 'reactstrap';
+import { Modal, ModalHeader, ModalBody, ModalFooter, Table } from 'reactstrap';
 import { addCategory, deleteCategory, editCategory } from '../actions/categories'
 
 
@@ -15,12 +15,16 @@ class Categories extends Component {
 		}
 	};
 
-	
+	toggle = () => {
+		this.setState({
+			modal: !this.state.modal,
+		});
+	}
 
-	toggle = (id, name) => {
+	toggleEdit = (id, name) => {
 		this.setState({
 			modal: true,
-			category:{
+			category: {
 				id: id,
 				name: name,
 			}
@@ -38,8 +42,8 @@ class Categories extends Component {
 
 	onHandleSubmit = () => {
 		let { category } = this.state;
-		category === null ?
-		this.props.addCategory(category) :
+		category.id === '' ?
+		this.props.addCategory(category):
 		this.props.editCategory(category)
 		this.setState({
 			modal: false,
@@ -50,7 +54,6 @@ class Categories extends Component {
 			}
 		});
 	}
-
 	render() {
 
 		const { category } = this.state
@@ -59,7 +62,7 @@ class Categories extends Component {
 				<Table hover>
 					<thead>
 						<tr>
-							<th>#</th>
+							<th><button className="btn btn-sm btn-outline-secondary "  onClick={this.toggle}><i className="fa fa-plus">  Add category</i></button></th>
 							<th>Category</th>
 							<th>Edit</th>
 							<th>Delete</th>
@@ -72,7 +75,7 @@ class Categories extends Component {
 								<td>{category.name}</td>
 								<td>
 									<button
-										onClick={() => this.toggle(category.id, category.name)}
+										onClick={() => this.toggleEdit(category.id, category.name)}
 										className="btn btn-sm btn-outline-secondary"
 									><i className="fa fa-edit" /></button>
 								</td>
@@ -85,27 +88,28 @@ class Categories extends Component {
 							</tr>
 						</tbody>))}
 				</Table>
-				<hr />
-				<button className="btn btn-sm btn-outline-success " onClick={this.toggle}><i className="fa fa-plus">  Add category</i></button>
+				
+				
 				<Modal isOpen={this.state.modal} toggle={this.toggle} className={this.props.className}>
-					<ModalHeader toggle={this.toggle}>Modal title</ModalHeader>
+					<ModalHeader toggle={this.toggle}>Category name</ModalHeader>
 					<ModalBody>
 						<input type='text'
-							name="body" editCategory
+							maxLength={10}
+							name="body"
 							value={category.name}
 							onChange={(e) => this.onChangeValue(e)}
 						/>
 					</ModalBody>
 					<ModalFooter>
-						<button className="btn btn-sm btn-outline-success fa fa-plus" color="primary" onClick={this.onHandleSubmit}>  Add category</button>{' '}
-						<button className="btn btn-sm btn-outline-danger fa fa-ban" color="secondary" onClick={this.toggle}>  Cancel</button>
+						<button className="btn btn-sm btn-outline-success fa fa-check-circle-o" onClick={this.onHandleSubmit}>  Ok</button>{' '}
+						<button className="btn btn-sm btn-outline-danger fa fa-ban" onClick={this.toggle}>  Cancel</button>
 					</ModalFooter>
 				</Modal>
 			</div>
 		);
 	}
 }
-const putStateToProps = (store, ownprops) => ({
+const putStateToProps = (store) => ({
 	categories: store.categories
 })
 

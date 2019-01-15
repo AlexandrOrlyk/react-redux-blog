@@ -10,7 +10,7 @@ import "react-datepicker/dist/react-datepicker.css";
 import { addPost, editPost } from '../actions/posts';
 import 'react-quill/dist/quill.snow.css'
 
-class PostEditor extends Component {   
+class PostEditor extends Component {
 
     state = {
         post: this.props.currentPost !== null ?
@@ -25,12 +25,12 @@ class PostEditor extends Component {
     };
 
     //Fixing error after update page
-     //this.props.match.params.id - Error checking when creating a new post 
-    componentWillReceiveProps =(nextProps)=>{
-    
-        if(this.props.match.params.id  && !this.props.posts.loaded && nextProps.posts.loaded){
+    //this.props.match.params.id - Error checking when creating a new post 
+    componentWillReceiveProps = (nextProps) => {
+
+        if (this.props.match.params.id && !this.props.posts.loaded && nextProps.posts.loaded) {
             let currentPost = nextProps.posts.list.find(div => div.id === parseInt(this.props.match.params.id, 10))
-            this.setState({post : currentPost})
+            this.setState({ post: currentPost })
         }
     }
 
@@ -39,7 +39,7 @@ class PostEditor extends Component {
         post.date = moment(e)
         this.setState({
             post
-            
+
         });
 
     }
@@ -53,11 +53,11 @@ class PostEditor extends Component {
         });
     }
 
-    onChangeBody =(e)=>{
+    onChangeBody = (e) => {
         let { post } = this.state;
         post.body = e
         this.setState({
-           post
+            post
         })
     }
 
@@ -69,10 +69,6 @@ class PostEditor extends Component {
             post
         })
     }
-
-    handleChange = (e) => {
-        this.setState({ value: e.target.value });
-    };
 
     onHandleSubmit = () => {
         let { post } = this.state;
@@ -98,7 +94,7 @@ class PostEditor extends Component {
                         aria-label="Sizing example input"
                         aria-describedby="inputGroup-sizing-default"
                         value={post.title}
-                        maxLength = {25}
+                        maxLength={23}
                         onChange={(e) => this.onChangeValue(e)}
                     />
                 </div>
@@ -111,7 +107,7 @@ class PostEditor extends Component {
                         aria-label="Sizing example input"
                         aria-describedby="inputGroup-sizing-default"
                         value={post.author}
-                        maxLength = {25}
+                        maxLength={25}
                         onChange={(e) => this.onChangeValue(e)}
                     />
                 </div>
@@ -127,14 +123,16 @@ class PostEditor extends Component {
 
                     <h4>Post</h4>
                     <ReactQuill
-                        name='body'
+                        style={{
+                            background: "#fefcfc"
+                        }}
+                        theme={'snow'}
                         modules={PostEditor.modules}
                         formats={PostEditor.formats}
                         placeholder='Enter text'
                         value={post.body}
                         onChange={(e) => this.onChangeBody(e)}
-                        maxLength = {25}
-                    />                     
+                    />
                 </div>
                 <div>
                     <h4>Categories</h4>
@@ -144,7 +142,7 @@ class PostEditor extends Component {
                         onChange={(e) => this.selectHandleChange(e)}
                     >
                         {this.props.categories.loaded && this.props.categories.list.map(category => (
-                            <option key={category.id} value={category.name} onChange={this.handleChange}
+                            <option key={category.id} value={category.name}
                             >{category.name}</option>
                         ))}
                     </select>
@@ -160,6 +158,7 @@ class PostEditor extends Component {
     }
 }
 PostEditor.modules = {
+    
     toolbar: [
         [{ header: '1' }, { header: '2' }, { font: [] }],
         [{ size: [] }],
@@ -181,7 +180,6 @@ PostEditor.formats = [
 ]
 
 //check whether it is caught with a click id, which will allow you to understand to create a new post if the id was not detected or edited post
-// loaded post and categories
 const putStateToProps = (store, ownprops) => ({
     currentPost: store.posts.loaded && ownprops.match.params.id ? store.posts.list.find(div => div.id === parseInt(ownprops.match.params.id, 10)) : null,
     posts: store.posts,

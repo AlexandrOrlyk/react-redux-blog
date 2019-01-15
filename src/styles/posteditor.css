@@ -2,3 +2,11 @@ h4{
     margin: 15px 10px 5px 10px;
     color: #001319;
 }
+
+
+
+.ql-toolbar {
+  background: #eaecec;
+  border-top-left-radius: 0.5em;
+  border-top-right-radius: 0.5em;
+}

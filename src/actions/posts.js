@@ -1,6 +1,7 @@
-import { ACTION_GET_POSTS, ACTION_ADD_POST, ACTION_DELETE_POST, ACTION_EDIT_POST } from '../reducers/actiontypes'
+import { ACTION_GET_POSTS, ACTION_ADD_POST, ACTION_DELETE_POST, ACTION_EDIT_POST } from '../actiontypes'
 import axios from 'axios'
 import moment from 'moment';
+import { toast } from "react-toastify";
 
 
 export const getPosts = () => {
@@ -16,7 +17,7 @@ export const getPosts = () => {
                 dispatch({ type: ACTION_GET_POSTS, payload: posts });
             })
             .catch((error) => {
-                console.log(error);
+                toast.error("ERROR");
             });
     };
 }
@@ -29,9 +30,10 @@ export const addPost = (post) => {
                     ...response.data,
                     date: moment(response.data.date)}
                 dispatch({ type: ACTION_ADD_POST, post: responsePost });
+                toast.success("You added the post");
             })
             .catch((error) => {
-                console.log(error);
+                toast.error("ERROR");
             });
     };
 }
@@ -44,9 +46,10 @@ export const editPost = (post) => {
                     ...response.data,
                     date: moment(response.data.date)}
                 dispatch({ type: ACTION_EDIT_POST, post: responsePost });
+                toast.success("You edited the post");
             })
             .catch((error) => {
-                console.log(error);
+                toast.error("ERROR");
             });
     };
 }
@@ -56,9 +59,10 @@ export const deletePost = (id) => {
         axios.delete('http://localhost:3000/posts/' + id)
             .then(response => {
                 dispatch({ type: ACTION_DELETE_POST, id });
+                toast.success("You deleted the post");
             })
             .catch((error) => {
-                console.log(error);
+                toast.error("ERROR");
             });
     };
 }

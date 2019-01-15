@@ -1,4 +1,4 @@
-import { ACTION_GET_CATEGORIES, ACTION_ADD_CATEGORY, ACTION_EDIT_CATEGORY,ACTION_DELETE_CATEGORY } from './actiontypes'
+import { ACTION_GET_CATEGORIES, ACTION_ADD_CATEGORY, ACTION_EDIT_CATEGORY,ACTION_DELETE_CATEGORY } from '../actiontypes'
 
 
 const init = {
@@ -10,8 +10,10 @@ export const categories = (state = init, action) => {
     switch (action.type) {
         case ACTION_GET_CATEGORIES:
             return {
+                
                 list: action.payload,
                 loaded: true
+                
             };
             case ACTION_EDIT_CATEGORY:
             return {

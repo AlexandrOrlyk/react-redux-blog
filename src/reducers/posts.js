@@ -1,4 +1,4 @@
-import { ACTION_GET_POSTS, ACTION_EDIT_POST, ACTION_ADD_POST, ACTION_DELETE_POST } from './actiontypes'
+import { ACTION_GET_POSTS, ACTION_EDIT_POST, ACTION_ADD_POST, ACTION_DELETE_POST } from '../actiontypes'
 
 
 const init = {

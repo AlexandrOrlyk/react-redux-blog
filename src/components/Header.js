@@ -2,8 +2,8 @@ import React from 'react'
 
 const Header = () => (
   <header>
-    <nav className="navbar navbar navbar-light" style={{ margin: '0', backgroundColor: '#999999', height: '50px' }}>
-      <i className="fa fa-th-large fa-2x logo" style={{ marginLeft: 10 }}></i>
+    <nav className="navbar navbar navbar-light" style={{ backgroundColor: '#999999' }}>
+      <i className="fa fa-th-large fa-2x logo" style={{ marginLeft: 10, color: 'white' }}><span style={{paddingLeft: 20}}>My first react App</span></i>
     </nav>
   </header>
 )

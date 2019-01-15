@@ -20,7 +20,6 @@ const Sidebar = () => (
         </tr>
         <tr>
           <th >
-            <Link to='/'></Link>
             <Link
               to='/posts'
               className="nav-link"

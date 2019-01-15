@@ -36,8 +36,8 @@
       "title": "Muscles (Arms)",
       "author": "Ann",
       "date": "2017-03-27T21:00:00.000Z",
-      "body": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
-      "category": "Fitness",
+      "body": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>",
+      "category": "Fitnesss",
       "id": 10
     },
     {
@@ -87,6 +87,86 @@
       "body": "<p><strong>&nbsp;</strong>“I’m late, I’m late for a very important date.” – White Rabbit from the movie&nbsp;<em>Alice in Wonderland</em>.&nbsp;Don’t let your ignorance of math make you like the White Rabbit!&nbsp;<a href=\"http://kfor.com/2017/03/12/study-4-in-5-oklahoma-city-students-cant-read-clocks/\" target=\"_blank\">A recent study</a>&nbsp;indicated that 4 out of 5 children living in Oklahoma City cannot read the hands on an analog clock to tell time.&nbsp;Knowing math, and particularly,&nbsp;<a href=\"https://www.piday.org/calculators/fraction-calculator/\" target=\"_blank\">fractions</a>, can help you better tell time.&nbsp;While analog clocks may eventually become obsolete, don’t let your ability to tell time become outdated!&nbsp;Use your knowledge of fractions to help you tell time on analog clocks that have an hour, minute, and (sometimes) second hand.</p>",
       "category": "Education",
       "id": 16
+    },
+    {
+      "title": "Get Started with Redux",
+      "author": "Matt",
+      "date": "2019-01-16T22:00:00.000Z",
+      "body": "<p>Redux is a predictable state container for JavaScript apps.</p><p>It helps you write applications that behave consistently, run in different environments (client, server, and native), and are easy to test. On top of that, it provides a great developer experience, such as&nbsp;<a href=\"https://github.com/reduxjs/redux-devtools\" target=\"_blank\">live code editing combined with a time traveling debugger</a>.</p><p>You can use Redux together with&nbsp;<a href=\"https://reactjs.org/\" target=\"_blank\">React</a>, or with any other view library. It is tiny (2kB, including dependencies), but has a large ecosystem of addons available.</p><p><br></p><p>Redux itself is small and unopinionated. We also have a separate package called&nbsp;<a href=\"https://redux-starter-kit.js.org/\" target=\"_blank\">redux-starter-kit</a>, which includes some opinionated defaults that help you use Redux more effectively.</p><p>It helps simplify a lot of common use cases, including&nbsp;<a href=\"https://redux-starter-kit.js.org/api/configureStore\" target=\"_blank\">store setup</a>,&nbsp;<a href=\"https://redux-starter-kit.js.org/api/createreducer\" target=\"_blank\">creating reducers and writing immutable update logic</a>, and even&nbsp;<a href=\"https://redux-starter-kit.js.org/api/createslice\" target=\"_blank\">creating entire \"slices\" of state at once</a>.</p><p>Whether you're a brand new Redux user setting up your first project, or an experienced user who wants to simplify an existing application,&nbsp;<a href=\"https://redux-starter-kit.js.org/\" target=\"_blank\">redux-starter-kit</a>&nbsp;can help you make your Redux code better.</p>",
+      "category": "IT",
+      "id": 17
+    },
+    {
+      "title": "Imagine Dragons",
+      "author": "Dan",
+      "date": "2019-01-11T15:00:55.764Z",
+      "body": "<p>Imagine Dragons is an American pop rock band from Las Vegas, Nevada, consisting of lead vocalist Dan Reynolds, lead guitarist Wayne Sermon, bassist Ben McKee, and drummer Daniel Platzman.[1] The band first gained exposure with the release of their single \"It's Time\", followed by their award-winning debut studio album Night Visions (2012), which resulted in the chart-topping singles \"Radioactive\" and \"Demons\". Rolling Stone named \"Radioactive\", which holds the record for most weeks charted on the Billboard Hot 100, the \"biggest rock hit of the year\".[1][2][3] MTV called them \"the year's biggest breakout band\",[4] and Billboard named them their \"Breakthrough Band of 2013\" and \"Biggest Band of 2017\".[5] and placed them at the top of their \"Year In Rock\" rankings for 2013,[6] 2017,[7] and 2018.[8] Imagine Dragons topped the Billboard Year-End \"Top Artists - Duo/Group\" category in 2018.[9]</p><p><br></p><p>The band's second studio album Smoke + Mirrors (2015) reached number one in the US, Canada and the UK.[10][11] The album was preceded by the top 40 single \"I Bet My Life\", and second and third singles, \"Gold\" and \"Shots\". The band then embarked on a ten month long world tour, which led to a brief hiatus in 2016, with occasional performances and soundtrack contributions throughout the remainder of the year.</p><p><br></p><p>The band released their third studio album, Evolve (2017) which resulted in three chart-topping singles, \"Believer\", \"Thunder\", and \"Whatever It Takes\", also making them the artist with the most weeks at number-one on the Billboard Hot Rock Songs chart. The album reached the top five in many countries.</p><p><br></p><p>After the Evolve Tour was completed, Imagine Dragons released their fourth studio album Origins, on November 9, 2018. \"Natural\" and \"Zero\" were released as the first singles off the album. Afterwords, \"Machine\" and \"Bad Liar\" were also released. A previously released single titled \"Born to Be Yours\" was included on a deluxe version of the album.[12] While all four albums were commercially successful, critical reception was mixed.[13]</p><p><br></p><p>Imagine Dragons has won three American Music Awards, nine Billboard Music Awards, one Grammy Award, one MTV Video Music Award and one World Music Award. In May 2014, the band was nominated for fourteen Billboard Music Awards, including Top Artist of the Year and a Milestone Award, which recognizes innovation and creativity of artists across different genres. In April 2018, the band was nominated eleven more times for Billboard Music Awards.[14] Imagine Dragons have sold 12 million albums and 35 million singles worldwide.[15]</p>",
+      "category": "Music",
+      "id": 18
+    },
+    {
+      "title": "What is League of Legends",
+      "author": "Riot Games",
+      "date": "2019-01-11T15:01:50.902Z",
+      "body": "<p><em>League of Legends</em>&nbsp;is a fast-paced, competitive online game that blends the speed and intensity of an RTS with RPG elements. Two teams of powerful champions, each with a unique design and playstyle, battle head-to-head across multiple battlefields and game modes. With an ever-expanding roster of champions, frequent updates and a thriving tournament scene,&nbsp;<em>League of Legends</em>&nbsp;offers endless replayability for players of every skill level.</p><p>Battle Head-to-Head</p><p>Combine strategic thinking, lightning reflexes and coordinated team-play to crush your enemies in both small-scale skirmishes and intense 5v5 battles</p><h4>Strategize and Evolve</h4><p>With regular gameplay updates, multiple maps and game modes, and new champions constantly joining the League, the only limit to your success is your own ingenuity</p><h4>Strategize and Evolve</h4><p>Whether you're enjoying a game against bots or climbing the ranks of the league system, League of Legends has the tech to quickly match you with a group of similarly-skilled competitors</p><h4>Fight with honor</h4><p>Compete with honor and receive special commendations from your peers to reward your good sportsmanship</p><h4>Experience eSports</h4><p>As the world's most active competitive scene, League of Legends sports numerous tournaments worldwide, including the prestigious Championship Series where salaried pros compete for millions</p><h4>World's Largest Online Gaming Community</h4><p>Join the world's largest online gaming community: make friends, form teams and battle tens of millions of opponents from countries across the globe, then exchange strats on reddit, YouTube, the forums and beyond</p>",
+      "category": "Games",
+      "id": 19
+    },
+    {
+      "title": "About King`s \"Misery\"",
+      "author": "Stephen",
+      "date": "2019-01-11T15:03:25.882Z",
+      "body": "<p>King's new novel, about a writer held hostage by his self-proclaimed \"\"number-one fan,'' is unadulteratedly terrifying. Paul Sheldon, a writer of historical romances, is in a car accident; rescued by nurse Annie Wilkes, he slowly realizes that salvation can be worse than death. Sheldon has killed off Misery Chastain, the popular protagonist of his Misery series and Annie, who has a murderous past, wants her back. Keeping the paralyzed Sheldon prisoner, she forces him to revive the character in a continuation of the series, and she reads each page as it comes out of the typewriter; there is a joyously Dickensian novel within a novel here, and it appears in faded typescript. Studded among the frightening moments are sparkling reflections on the writer and his audience, on the difficulties, joys and responsibilities of being a storyteller, on the nature of the muse, on the differences between ``serious'' and ``popular'' writing. Sheldon is a revealingly autobiographical figure; Annie is not merely a monster but is subtly and often touchingly portrayed, allowing hostage and keeper a believable, if twisted, relationship. The best parts of this novel demand that we take King seriously as a writer with a deeply felt understanding of human psychology. One million first printing; $400,000 ad/promo; BOMC main selection. (June 8)</p>",
+      "category": "Books",
+      "id": 20
+    },
+    {
+      "title": "Devil’s Day",
+      "author": "Andrew Michael",
+      "date": "2018-10-30T22:00:00.000Z",
+      "body": "<p><strong>Acentury-old folk legend—</strong>that the devil came down one autumn to the English sheep-farming community known as the Endlands and surreptitiously infected everyone he came into contact with before being driven out—colors the haunting events of this masterly thriller from Hurley (<em>The Loney</em>). In contemporary times, schoolteacher John Pentecost returns from Suffolk to his family’s Endlands farm with his wife, Kat, to attend the funeral of his grandfather and announce the impending birth of their first child. Almost immediately, they step into a mire of ominous portents: someone recently set fire to the nearby forest, animals are being killed, <em>disembodied voices are heard on the moors, and one of the resi</em>dents is mysteriously missing. <strong>Matters come</strong> to a head on Devil’s Day, celebrated before the annual gathering of the sheep, when the locals ritually give the devil his due and the border between superstitions and genuinely uncanny events wears perilously thin. Hurley keeps the explanations for what occurs deliciously ambiguous, filtering discoveries through John, who, as he selectively relates past memories to present happenings, reveals himself to be a less-than-forthcoming narrator at best. The result is an intensely suspenseful tale memorable for what it says about unshakable traditions that are bred in the bone.</p>",
+      "category": "Books",
+      "id": 21
+    },
+    {
+      "title": "The Watchman",
+      "author": "Niklas Natt ",
+      "date": "2018-08-26T21:00:00.000Z",
+      "body": "<p>The discovery of a torso in a lake outside Stockholm drives Natt och Dag’s masterly first novel, set in 1793. The human remains prove to belong to a man whose limbs were severed one at a time over several months. Identifying the victim and his killer falls to Cecil Winge, an idealistic attorney who assists the police. Winge enlists the aid of Mickel Cardell, a veteran of a fruitless war with Russia in which he lost an arm. Now working as a watchman, Mickel retrieved the cadaver from the water. The pair have few clues to work with, but a piece of fabric with unusual markings wrapped around the body leads them to the Eumenides, an ostensibly charitable upper-class organization that meets in a building that houses a bordello. The book’s structure, which includes flashbacks and multiple perspectives, will remind many of Iain Pears’s&nbsp;<em>An Instance of the Fingerpost</em>, and Natt och Dag uses this structure to heighten suspense and deepen characterizations. The Swedish Academy of Crime Writers named this the best debut novel of 2017, and U.S. readers will be likewise impressed.&nbsp;</p>",
+      "category": "Books",
+      "id": 22
+    },
+    {
+      "title": "Supernatural",
+      "author": "Rachel B.",
+      "date": "2018-08-13T21:00:00.000Z",
+      "body": "<p>This television drama is about the two Winchester brothers, Sam and Dean, who were raised by their father, John, to hunt and kill all things that go \"bump in the night\" after his wife, Mary, was murdered by an evil supernatural being when the boys were young. 22 years later the brothers set out on a journey, fighting evil along the way, to find their recently missing father who, when they finally meet up with, reveals he knows what killed their mother, a demon, and has found a way to track and kill it. Meanwhile, Sam starts to develop frightening abilities that include death visions, visions of people dying before it actually happens. These visions are somehow connected to the demon who murdered his mother and its mysterious plans that seem to be all about Sam. When their father dies striking a deal with the very same devil that had killed his wife, the brothers, now alone and without their mentor, are determined to finish the crusade their father started. But disturbing revelations ...</p>",
+      "category": "Films",
+      "id": 23
+    },
+    {
+      "title": "Dell XPS 13\"",
+      "author": "Alex",
+      "date": "2018-10-28T22:00:00.000Z",
+      "body": "<p>BRIEFLY ABOUT THIS LAPTOP (01-02491):</p><p><br></p><p>Dell XPS 13 Ultrabook (L321X):</p><p>13.3 \"(1366x768) HD LED screen: glossy / Intel Core i7-2637M (1.7 - 2.8 GHz) / 4GB RAM / 128GB SSD / Intel HD Graphics 3000 / USB / Wi-Fi / webcam / Windows 10 / 1.06 kg / silver</p><p><br></p><p>- = $ = -</p><p><br></p><p>DETAILED DESCRIPTION OF THE LAPTOP:</p><p>- BRIGHT, SATURATED GLOSSY DISPLAY WITH 13.3 \"DIAGONAL COLORS BRIGHT, CLEAR CLEAR. REVERSE ANGLES ARE GREAT! THE PERFECT MATRIX! PERFECT QUALITY OF THE PICTURE!</p><p>- EXCELLENT TWO-FRONT FOUR-STREAMING PROCESSOR Intel Core i7 WITH 2.8 GHz FREQUENCY EACH NUCLEUS. FAST AND RELIABLE, WILL COME FOR SERIOUS DAILY LOADS! WILL BE SATISFIED!</p><p>- INTEGRATED VIDEO CARD Intel HD Graphics 3000. FIT FOR SPECIAL GAMES. EXCELLENT QUALITY VIDEO - 2K!</p><p>- VOLUME OF OPERATIONAL MEMORY 4 GB! APPLICATIONS RUN INCREDIBLY QUICKLY!</p><p>- Installed SSD 128GB HDD! VERY QUICK STARTING SYSTEM. SSD MUCH MORE FAST NORMAL HARD DRIVES! VERY FAST JOB!</p><p>- BATTERY HOLDS CHARGES ABOUT 4 HOURS WEAR 14%</p><p>- THE LAPTOP IS NOT HEATED EVEN AT MAXIMUM LOADS! EXCELLENT COOLING SYSTEM</p><p>- RELIABLE AND STRONG CASE, COMPLETED FROM ALUMINUM</p><p>- RELATED MANUFACTURER COMPANY DELL. BUILD QUALITY! HUGE FUNCTIONAL!</p><p>- STYLISH DESIGN WITH LIGHT KEYBOARD!</p><p>- GREAT OPTION FOR DESIGNER WORK AND PROGRAMMING!</p><p>- FULLY TESTED AND TESTED, READY TO WORK</p><p>- SHIPPING A CASH ON ALL UKRAINE WITHOUT PAYMENT</p>",
+      "category": "IT",
+      "id": 24
+    },
+    {
+      "title": "applyMiddleware",
+      "author": "Viktor",
+      "date": "2018-10-29T22:00:00.000Z",
+      "body": "<p>Middleware is the suggested way to extend Redux with custom functionality. Middleware lets you wrap the store's&nbsp;dispatch&nbsp;method for fun and profit. The key feature of middleware is that it is composable. Multiple middleware can be combined together, where each middleware requires no knowledge of what comes before or after it in the chain.</p><p>The most common use case for middleware is to support asynchronous actions without much boilerplate code or a dependency on a library like&nbsp;Rx. It does so by letting you dispatch&nbsp;async actions&nbsp;in addition to normal actions.</p><p>For example,&nbsp;redux-thunk&nbsp;lets the action creators invert control by dispatching functions. They would receive&nbsp;dispatch&nbsp;as an argument and may call it asynchronously. Such functions are called&nbsp;<em>thunks</em>. Another example of middleware is&nbsp;redux-promise. It lets you dispatch a&nbsp;Promise&nbsp;async action, and dispatches a normal action when the Promise resolves.</p><p>Middleware is not baked into&nbsp;createStore&nbsp;and is not a fundamental part of the Redux architecture, but we consider it useful enough to be supported right in the core. This way, there is a single standard way to extend&nbsp;dispatch&nbsp;in the ecosystem, and different middleware may compete in expressiveness and utility.</p>",
+      "category": "IT",
+      "id": 25
+    },
+    {
+      "title": "Muscles (Legs)",
+      "author": "Ann",
+      "date": "2018-12-19T22:00:00.000Z",
+      "body": "<p>Doing leg exercises at home is probably a lot easier than you realize. You&nbsp;don't need a leg press machine, or a stair climber, or a squat bar to fire up those lower-body muscles. All you need is your bodyweight, maybe a chair, and the motivation to put some&nbsp;burn&nbsp;in your quads, hamstrings, glutes, calves, and inner thighs. Oh, and this list of 13 no-equipment leg exercises that you can do anywhere, anytime.</p><p><br></p><p>It probably comes as no surprise that having&nbsp;strong legs&nbsp;can take you far. Even if you're not&nbsp;training for a race&nbsp;or working toward any other specific athletic goal, you need legs that are strong enough to literally carry you through life. Everything from walking up a flight of stairs to lifting your heavy laundry bag is easier when you can put some leg muscle behind it. Luckily, effective leg exercises don't have to be complicated, and they don't even require a gym membership. There are plenty of bodyweight leg exercises you can add to your workout routine to get stronger—and work toward any bigger strength and performance goals you may have, too.</p><p>\"Bodyweight exercises are realistic and functional, meaning that they help us strengthen our muscles that we use in our daily lives,\"&nbsp;Jess Sims, a NASM-certified personal trainer at the Fhitting Room and Shadowbox in New York City, tells SELF. \"For example, when we squat, we are essentially sitting down into an imaginary chair, which will help improve our posture when we actually sit in a chair. When we stand up from a squat, we drive through our heels and brace our core—we are essentially building great habits that translate into our lives outside the gym.\"</p><p>Bodyweight leg exercises are also valuable for learning proper form before you add weights to certain moves. \"We shouldn’t be using weights until we’ve mastered&nbsp;basic lunge, hinge, and&nbsp;squatmovements without weights,\" Sims says. Another bonus of bodyweight moves? \"You have your body all the time and it’s free to use, so you can do exercises anywhere and at anytime!\" The best leg workouts are the ones you'll actually do, right? So if you've got an arsenal of moves that you can literally do anywhere, there's a better chance you'll fit them into your routine</p>",
+      "category": "Fitnesss",
+      "id": 26
     }
   ],
   "categories": [
@@ -100,7 +180,7 @@
     },
     {
       "id": 3,
-      "name": "Psyhology"
+      "name": "Psyholog"
     },
     {
       "id": 4,
@@ -108,7 +188,7 @@
     },
     {
       "id": 5,
-      "name": "Fitness"
+      "name": "Fitnesss"
     },
     {
       "id": 6,
@@ -132,19 +212,11 @@
     },
     {
       "id": 11,
-      "name": "Iphone"
-    },
-    {
-      "id": 12,
-      "name": "Haxball"
+      "name": "Cellphones"
     },
     {
       "id": 13,
       "name": "React"
-    },
-    {
-      "id": 14,
-      "name": "Music"
     }
   ]
 }

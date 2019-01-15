@@ -3,8 +3,8 @@ import { Switch, Route } from 'react-router-dom'
 
 import Categories from './Categories'
 import Posts from './Posts'
-import PostEditor from './posteditor';
-import ViewPost from './viewpost'
+import PostEditor from './Posteditor';
+import ViewPost from './Viewpost'
 
 
 const Routing = () => (

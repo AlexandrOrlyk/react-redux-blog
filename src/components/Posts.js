@@ -11,16 +11,15 @@ import renderHTML from 'react-render-html'
 class Posts extends Component {
     state = {
         search: '',
-        sortingType: 'name', //or date
-        category: 'all'
+        sortingType: '', //name or date
+        category: 'all',
+        condition: false
     }
 
     selectHandleChange = (e) => {
-        let { category } = this.state;
-        let { value } = e.target;
-        category = value
+
         this.setState({
-            category
+            category: e.target.value
         });
     }
 
@@ -32,16 +31,37 @@ class Posts extends Component {
 
     changeSorting = (type) => {
         this.setState({
-            sortingType: type
+            sortingType: type,
+            condition: !this.state.condition
         })
 
     }
 
+    buttons = [
+        { sortingType: 'name', label: 'Sort by title' },
+        { sortingType: 'date', label: 'Sort by date' }
+    ]
+
     render() {
+
+        const { search, sortingType, category } = this.state
+
+        const buttons = this.buttons.map(({ sortingType, label }) => {
+            const isActive = this.state.sortingType === sortingType;
+            const clazz = isActive ? "btn-dark " : "btn-outline-dark"
+            return (
+                <button
+                    style={{ padding: '7px 50px', marginLeft: 10 }}
+                    onClick={() => this.changeSorting(sortingType)}
+                    className={`btn btn-sm ${clazz}`}
+                    key={sortingType}
+                >{label}</button>
+            )
+        })
         //sort posts by category
         let sortedPostByCategory = this.props.posts.list.filter(post => this.state.category === 'all' || post.category === this.state.category);
-        //de-structuring
-        const { search, sortingType, category } = this.state
+
+
         //search by title from a to s with compliance LowerCase
         const filterByTitle = sortedPostByCategory.filter(post => {
             return post.title.toLowerCase().indexOf(search.toLowerCase()) !== -1
@@ -69,7 +89,7 @@ class Posts extends Component {
             <div>
                 <div className="form-group form-inline mx-sm-3 mb-2" >
                     <select
-                        style={{ margin: '15px', padding: '7px 50px' }}
+                        style={{ margin: '15px 0' }}
                         className="custom-select"
                         value={category}
                         onChange={(e) => this.selectHandleChange(e)}
@@ -80,26 +100,14 @@ class Posts extends Component {
                             >{category.name}</option>
                         ))}
                     </select>
-                    <button
-                        style={{ padding: '7px 50px' }}
-                        onClick={() => this.changeSorting('name')}
-                        className="btn btn-sm btn-outline-secondary"
-
-                    ><i className="fa fa-sort-alpha-asc">  Ordered by title</i></button>
-                    <button
-                        style={{ margin: '15px', padding: '7px 50px' }}
-                        onClick={() => this.changeSorting('date')}
-                        className="btn btn-sm btn-outline-dark"
-                    ><i className="fa fa-sort-amount-asc"></i>  Order by date</button>
+                    {buttons}
                     <input
-                        style={{ maxWidth: '200px', position: 'relative', right: '-30%' }}
+                        style={{ maxWidth: '200px', position: 'relative', right: '-45%' }}
                         className="form-control"
                         type="search"
                         placeholder="Search "
                         onChange={this.onChange}
-
                     />
-
                 </div>
 
                 <div className='row'>
@@ -114,8 +122,8 @@ class Posts extends Component {
                         <div key={post.id} className="col-md-4">
                             <div className="card mb-4 shadow-sm">
                                 <div className="card-body">
-                                    <h3><p className="title">{post.title}</p></h3>
-                                    <h6><p className="author">{post.author}</p></h6>
+                                    <h3 className="title">{post.title}</h3>
+                                    <h6 className="author">{post.author}</h6>
                                     <hr />
 
                                     <ShowMore
@@ -127,7 +135,7 @@ class Posts extends Component {
                                         {renderHTML(post.body)}
                                     </ShowMore>
 
-                                    <p className='category' style={{ marginTop: '25px', border: '1px solid gray', maxWidth: 100, minHeight: 20, marginLeft: 280, textAlign: 'center' }}>{post.category}</p>
+                                    <p className='category' style={{ marginTop: '25px', border: '1px solid gray', maxWidth: 120, minHeight: 20, marginLeft: '65%', textAlign: 'center' }}>{post.category}</p>
                                     <div className="d-flex justify-content-between align-items-center" style={{ marginTop: '25px' }} >
                                         <div className="btn-group">
                                             <Link to={`posts/${post.id}`}><button type="button" className="btn btn-sm btn-outline-primary"><i className="fa fa-eye"></i>  View</button></Link>
