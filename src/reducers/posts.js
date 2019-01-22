@@ -14,9 +14,10 @@ export const posts = (state = init, action) => {
                 loaded: true
             };
         case ACTION_EDIT_POST:
+            console.log(state.list);
             return {
                  ...state,
-                list: [...state.list.filter(p => p.id !== action.post.id), action.post]
+                list: [...state.list.filter(p => p.Id !== action.post.Id), action.post]
             };
         case ACTION_ADD_POST:
             return {
@@ -26,7 +27,7 @@ export const posts = (state = init, action) => {
         case ACTION_DELETE_POST:
             return {
                 ...state,
-                list: state.list.filter(p => action.id !== p.id)
+                list: state.list.filter(p => action.Id !== p.Id)
             };
         default:
             return state

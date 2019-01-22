@@ -1,4 +1,4 @@
-import { ACTION_GET_CATEGORIES, ACTION_ADD_CATEGORY, ACTION_EDIT_CATEGORY,ACTION_DELETE_CATEGORY } from '../actiontypes'
+import { ACTION_GET_TAGS, ACTION_EDIT_TAG, ACTION_ADD_TAG,ACTION_DELETE_TAG } from '../actiontypes'
 
 
 const init = {
@@ -6,26 +6,26 @@ const init = {
     list: [ ]
 }
 
-export const categories = (state = init, action) => {
+export const Tags = (state = init, action) => {
     switch (action.type) {
-        case ACTION_GET_CATEGORIES:
+        case ACTION_GET_TAGS:
             return {
                 
                 list: action.payload,
                 loaded: true
                 
             };
-            case ACTION_EDIT_CATEGORY:
+            case ACTION_EDIT_TAG:
             return {
                 ...state,
-                list: [...state.list.filter(c => c.id !== action.category.id), action.category]
+                list: [...state.list.filter(c => c.id !== action.Tag.id), action.Tag]
             };
-            case ACTION_ADD_CATEGORY:
+            case ACTION_ADD_TAG:
             return {
                 ...state,
-                list: [...state.list, action.category]
+                list: [...state.list, action.Tag]
             };
-            case ACTION_DELETE_CATEGORY:
+            case ACTION_DELETE_TAG:
             return {
                 ...state,
                 list: state.list.filter(p => action.id !== p.id)

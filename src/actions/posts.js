@@ -8,43 +8,43 @@ export const getPosts = () => {
 
     return (dispatch) => {
 
-        axios.get('http://localhost:3000/posts')
+        axios.get('https://hb-blog.azurewebsites.net/api/posts')
             .then((response) => {
                 let posts = response.data.map(p => ({
                     ...p,
-                    date: moment(p.date)
+                    Date: moment(p.Date)
                 }))
                 dispatch({ type: ACTION_GET_POSTS, payload: posts });
             })
             .catch((error) => {
-                toast.error("ERROR");
+                toast.error("ERROR, Don't get post");
             });
     };
 }
 
 export const addPost = (post) => {
     return (dispatch) => {
-        axios.post('http://localhost:3000/posts', post)
+        axios.post(' https://hb-blog.azurewebsites.net/api/createpost', post)
             .then((response) => {
                 let responsePost = {
                     ...response.data,
-                    date: moment(response.data.date)}
+                    Date: moment(response.data.Date)}
                 dispatch({ type: ACTION_ADD_POST, post: responsePost });
                 toast.success("You added the post");
             })
             .catch((error) => {
-                toast.error("ERROR");
+                toast.error("ERROR, You can`t add post");
             });
     };
 }
 
 export const editPost = (post) => {
     return (dispatch) => {
-        axios.put('http://localhost:3000/posts/' + post.id, post)
+        axios.put('https://hb-blog.azurewebsites.net/api/EditPost/' + post.Id, post)
             .then((response) => {
                 let responsePost = {
                     ...response.data,
-                    date: moment(response.data.date)}
+                    Date: moment(response.data.Date)}
                 dispatch({ type: ACTION_EDIT_POST, post: responsePost });
                 toast.success("You edited the post");
             })
@@ -54,11 +54,11 @@ export const editPost = (post) => {
     };
 }
 
-export const deletePost = (id) => {
+export const deletePost = (Id) => {
     return (dispatch) => {
-        axios.delete('http://localhost:3000/posts/' + id)
+        axios.delete('https://hb-blog.azurewebsites.net/api/deletepost?Id=' + Id)
             .then(response => {
-                dispatch({ type: ACTION_DELETE_POST, id });
+                dispatch({ type: ACTION_DELETE_POST, Id });
                 toast.success("You deleted the post");
             })
             .catch((error) => {

@@ -10,33 +10,38 @@ class ViewPost extends Component {
     state = {
         post: this.props.currentPost
     };
-
+    
     componentWillReceiveProps = (nextProps) => {
-        if (this.props.match.params.id && !this.props.posts.loaded && nextProps.posts.loaded) {
-            let currentPost = nextProps.posts.list.find(div => div.id === parseInt(this.props.match.params.id, 10))
-            this.setState({ post: currentPost })
-        }
-    }
-
+        //this.props.match.params.id - Error checking when creating a new post 
+              if (this.props.match.params.id && !this.props.posts.loaded && nextProps.posts.loaded) {
+                  let currentPost = nextProps.posts.list.find(div => div.Id === this.props.match.params.id);
+                  this.setState({ post: currentPost })
+              }
+          }
+      
     render() {
-
+        console.log('render');
         const { post } = this.state;
+       
         if (!this.props.posts.loaded) return null;
         return (
             <div>
                 <h1>Post</h1>
                 <h5>Title</h5>
-                <p>{post.title}</p>
+                <p>{post.Title}</p>
+                <h5>Subtitle</h5>
+                <p>{post.Subtitle}</p>
                 <h5>Author</h5>
-                <p>{post.author}</p>
+                <p>{post.Author}</p>
+                <p>{post.Priority}</p>
                 <hr />
-                <div>{renderHTML(post.body)}</div>
+                <div>{renderHTML(post.Text)}</div>
                 <hr />
-                <h5>Category</h5>
-                <p>{post.category}</p>
+                <h5>Tags</h5>
+                <p>{post.Tag}</p>
                 <div>
                     <h5>Date</h5>
-                    <p>{post.date.format('DD-MM-YYYY')}</p>
+                    <p>{post.Date.format('DD-MM-YYYY')}</p>
                 </div>
 
             </div>
@@ -45,10 +50,11 @@ class ViewPost extends Component {
 }
 
 
+//check whether it is caught with a click id, which will allow you to understand to create a new post if the id was not detected or edited post
 const putStateToProps = (store, ownprops) => ({
-    currentPost: store.posts.loaded && ownprops.match.params.id ? store.posts.list.find(div => div.id === parseInt(ownprops.match.params.id, 10)) : null,
+    currentPost: store.posts.loaded && ownprops.match.params.id ? store.posts.list.find(div => div.Id === ownprops.match.params.id) : null,
     posts: store.posts,
-    categories: store.categories
+    Tags: store.Tags
 })
 
 

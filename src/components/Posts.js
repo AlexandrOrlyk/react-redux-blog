@@ -12,14 +12,14 @@ class Posts extends Component {
     state = {
         search: '',
         sortingType: '', //name or date
-        category: 'all',
+        Tag: 'all',
         condition: false
     }
 
     selectHandleChange = (e) => {
 
         this.setState({
-            category: e.target.value
+            Tag: e.target.value
         });
     }
 
@@ -39,12 +39,12 @@ class Posts extends Component {
 
     buttons = [
         { sortingType: 'name', label: 'Sort by title' },
-        { sortingType: 'date', label: 'Sort by date' }
+        { sortingType: 'Date', label: 'Sort by date' }
     ]
 
     render() {
 
-        const { search, sortingType, category } = this.state
+        const { search, sortingType, Tag } = this.state
 
         const buttons = this.buttons.map(({ sortingType, label }) => {
             const isActive = this.state.sortingType === sortingType;
@@ -59,12 +59,12 @@ class Posts extends Component {
             )
         })
         //sort posts by category
-        let sortedPostByCategory = this.props.posts.list.filter(post => this.state.category === 'all' || post.category === this.state.category);
+        let sortedPostByTag = this.props.posts.list.filter(post => this.state.Tag === 'all' || post.Tag === this.state.Tag);
 
 
         //search by title from a to s with compliance LowerCase
-        const filterByTitle = sortedPostByCategory.filter(post => {
-            return post.title.toLowerCase().indexOf(search.toLowerCase()) !== -1
+        const filterByTitle = sortedPostByTag.filter(post => {
+            return post.Title.toLowerCase().indexOf(search.toLowerCase()) !== -1
         })
 
         let sorteredPosts = [];
@@ -72,13 +72,13 @@ class Posts extends Component {
             // sort by title from a to s with compliance LowerCase
             case 'name':
                 sorteredPosts = filterByTitle.sort((a, b) => {
-                    if (a.title.toLowerCase() < b.title.toLowerCase()) return -1;
-                    if (a.title.toLowerCase() > b.title.toLowerCase()) return 1;
+                    if (a.Title.toLowerCase() < b.Title.toLowerCase()) return -1;
+                    if (a.Title.toLowerCase() > b.Title.toLowerCase()) return 1;
                     return 0;
                 })
                 break;
-            case 'date':
-                sorteredPosts = filterByTitle.sort((a, b) => b.date - a.date)
+            case 'Date':
+                sorteredPosts = filterByTitle.sort((a, b) => b.Date - a.Date)
                 break;
             default:
                 sorteredPosts = filterByTitle
@@ -91,13 +91,14 @@ class Posts extends Component {
                     <select
                         style={{ margin: '15px 0' }}
                         className="custom-select"
-                        value={category}
+                        value={Tag}
                         onChange={(e) => this.selectHandleChange(e)}
                     >
                         <option key='all' value='all' >All</option>
-                        {this.props.categories.list.map(category => (
-                            <option key={category.id} value={category.name}
-                            >{category.name}</option>
+                        {this.props.Tags.list.map(tag => (
+                            <option key={tag.id} value={tag.name}
+                            >{tag.name}</option>
+
                         ))}
                     </select>
                     {buttons}
@@ -119,11 +120,15 @@ class Posts extends Component {
                         </Link>
                     </div>
                     {this.props.posts.loaded && sorteredPosts.map(post => (
-                        <div key={post.id} className="col-md-4">
+                        <div key={post.Id} className="col-md-4">
                             <div className="card mb-4 shadow-sm">
                                 <div className="card-body">
-                                    <h3 className="title">{post.title}</h3>
-                                    <h6 className="author">{post.author}</h6>
+                                    <h3 className="Title">{post.Title}</h3>
+                                    <h3 className="Sub">{post.Subtitle}</h3>
+                                    <h6 className="Author">{post.Author}</h6>
+                                   
+                                    <small className="Priority text-muted" >{post.Priority}</small>
+                                    
                                     <hr />
 
                                     <ShowMore
@@ -132,17 +137,17 @@ class Posts extends Component {
                                         less='Show less'
                                         formats={Posts.formats}
                                     >
-                                        {renderHTML(post.body)}
+                                        {renderHTML(post.Text)}
                                     </ShowMore>
 
-                                    <p className='category' style={{ marginTop: '25px', border: '1px solid gray', maxWidth: 120, minHeight: 20, marginLeft: '65%', textAlign: 'center' }}>{post.category}</p>
+                                    <p className='Tag' style={{ marginTop: '25px', border: '1px solid gray', maxWidth: 120, minHeight: 20, marginLeft: '65%', textAlign: 'center' }}>{post.Tag}</p>
                                     <div className="d-flex justify-content-between align-items-center" style={{ marginTop: '25px' }} >
                                         <div className="btn-group">
-                                            <Link to={`posts/${post.id}`}><button type="button" className="btn btn-sm btn-outline-primary"><i className="fa fa-eye"></i>  View</button></Link>
-                                            <Link to={`post/${post.id}`}><button type="button" className="btn btn-sm btn-outline-secondary"><i className="fas fa-ad"></i><i className="fa fa-pencil-square-o" aria-hidden="true"> Edit</i></button></Link>
-                                            <button type="button" className="btn btn-sm btn-outline-danger" onClick={() => this.props.deletePost(post.id)}><i className="fa fa-trash-o">  Delete</i></button>
+                                            <Link to={`posts/${post.Id}`}><button type="button" className="btn btn-sm btn-outline-primary"><i className="fa fa-eye"></i>  View</button></Link>
+                                            <Link to={`post/${post.Id}`}><button type="button" className="btn btn-sm btn-outline-secondary"><i className="fas fa-ad"></i><i className="fa fa-pencil-square-o" aria-hidden="true"> Edit</i></button></Link>
+                                            <button type="button" className="btn btn-sm btn-outline-danger" onClick={() => this.props.deletePost(post.Id)}><i className="fa fa-trash-o">  Delete</i></button>
                                         </div>
-                                        <small className="text-muted">{post.date.fromNow()}</small>
+                                        <small className="text-muted">{post.Date.fromNow()}</small>
                                     </div>
                                 </div>
                             </div>
@@ -158,12 +163,12 @@ class Posts extends Component {
 
 const putStateToProps = (store, ownprops) => ({
     posts: store.posts,
-    categories: store.categories
+    Tags: store.Tags
 })
 
 
 const mapDispatchProps = (dispatch) => ({
-    deletePost: (id) => dispatch(deletePost(id))
+    deletePost: (Id) => dispatch(deletePost(Id))
 })
 
 export default connect(putStateToProps, mapDispatchProps)(Posts)

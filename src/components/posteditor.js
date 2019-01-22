@@ -8,7 +8,9 @@ import DatePicker from "react-datepicker";
 import moment from 'moment'
 import "react-datepicker/dist/react-datepicker.css";
 import { addPost, editPost } from '../actions/posts';
-import 'react-quill/dist/quill.snow.css'
+import 'react-quill/dist/quill.snow.css';
+import Select from 'react-select';
+
 
 class PostEditor extends Component {
 
@@ -16,27 +18,29 @@ class PostEditor extends Component {
         post: this.props.currentPost !== null ?
             this.props.currentPost :
             {
-                title: '',
-                author: '',
-                date: moment(),
-                body: '',
-                category: ''
-            }
+                Title: '',
+                Author: '',
+                Date: moment(),
+                Text: '',
+                Tag: '',
+                Priority: '',
+                Subtitle: ''
+            },
     };
 
     //Fixing error after update page
-    //this.props.match.params.id - Error checking when creating a new post 
+  
     componentWillReceiveProps = (nextProps) => {
-
+  //this.props.match.params.id - Error checking when creating a new post 
         if (this.props.match.params.id && !this.props.posts.loaded && nextProps.posts.loaded) {
-            let currentPost = nextProps.posts.list.find(div => div.id === parseInt(this.props.match.params.id, 10))
+            let currentPost = nextProps.posts.list.find(div => div.Id === this.props.match.params.id);
             this.setState({ post: currentPost })
         }
     }
 
     dataHandleChange = (e) => {
         let { post } = this.state;
-        post.date = moment(e)
+        post.Date = moment(e)
         this.setState({
             post
 
@@ -53,9 +57,10 @@ class PostEditor extends Component {
         });
     }
 
-    onChangeBody = (e) => {
+
+    onChangeText = (e) => {
         let { post } = this.state;
-        post.body = e
+        post.Text = e
         this.setState({
             post
         })
@@ -72,7 +77,7 @@ class PostEditor extends Component {
 
     onHandleSubmit = () => {
         let { post } = this.state;
-        this.props.currentPost === null ?
+        this.props.currentPost === null?
             this.props.addPost(post) :
             this.props.editPost(post);
         this.props.history.push('/posts');
@@ -88,12 +93,21 @@ class PostEditor extends Component {
                 <div>
                     <h4>Title</h4>
                     <input
-                        name='title'
+                        name='Title'
                         type="text"
                         className="form-control"
-                        aria-label="Sizing example input"
                         aria-describedby="inputGroup-sizing-default"
-                        value={post.title}
+                        value={post.Title}
+                        maxLength={23}
+                        onChange={(e) => this.onChangeValue(e)}
+                    />
+                    <h4>Subtitle</h4>
+                    <input
+                        name='Subtitle'
+                        type="text"
+                        className="form-control"                        
+                        aria-describedby="inputGroup-sizing-default"
+                        value={(post.Subtitle)?post.Subtitle:''}
                         maxLength={23}
                         onChange={(e) => this.onChangeValue(e)}
                     />
@@ -101,12 +115,23 @@ class PostEditor extends Component {
                 <div>
                     <h4>Author`s name</h4>
                     <input
-                        name='author'
+                        name='Author'
                         type="text"
                         className="form-control"
-                        aria-label="Sizing example input"
                         aria-describedby="inputGroup-sizing-default"
-                        value={post.author}
+                        value={post.Author}
+                        maxLength={25}
+                        onChange={(e) => this.onChangeValue(e)}
+                    />
+                </div>
+                <div>
+                    <h4>Priority</h4>
+                    <input
+                        name='Priority'
+                        type="text"
+                        className="form-control"
+                        aria-describedby="inputGroup-sizing-default"
+                        value={post.Priority}
                         maxLength={25}
                         onChange={(e) => this.onChangeValue(e)}
                     />
@@ -114,9 +139,9 @@ class PostEditor extends Component {
                 <div>
                     <h4>Date of creation</h4>
                     <DatePicker
-                        name='date'
+                        name='Date'
                         onChange={this.dataHandleChange}
-                        value={post.date.format('DD-MM-YYYY')}
+                        value={post.Date.format('DD-MM-YYYY')}
                     />
                 </div>
                 <div>
@@ -130,22 +155,26 @@ class PostEditor extends Component {
                         modules={PostEditor.modules}
                         formats={PostEditor.formats}
                         placeholder='Enter text'
-                        value={post.body}
-                        onChange={(e) => this.onChangeBody(e)}
+                        value={post.Text}
+                        onChange={(e) => this.onChangeText(e)}
                     />
                 </div>
                 <div>
-                    <h4>Categories</h4>
+                    <h4>Tags</h4>
                     <select
+                        
                         className="custom-select"
-                        value={post.category}
+                        value={post.Tags}
                         onChange={(e) => this.selectHandleChange(e)}
+                        
                     >
-                        {this.props.categories.loaded && this.props.categories.list.map(category => (
-                            <option key={category.id} value={category.name}
-                            >{category.name}</option>
+                        {this.props.Tags.loaded && this.props.Tags.list.map(tag => (
+                            <option key={tag.id} value={tag.name}
+                            >{tag.name}</option>
                         ))}
                     </select>
+                    <Select>
+                    </Select>
                 </div>
                 <button
                     onClick={this.onHandleSubmit}
@@ -181,9 +210,9 @@ PostEditor.formats = [
 
 //check whether it is caught with a click id, which will allow you to understand to create a new post if the id was not detected or edited post
 const putStateToProps = (store, ownprops) => ({
-    currentPost: store.posts.loaded && ownprops.match.params.id ? store.posts.list.find(div => div.id === parseInt(ownprops.match.params.id, 10)) : null,
+    currentPost: store.posts.loaded && ownprops.match.params.id ? store.posts.list.find(div => div.Id === ownprops.match.params.id) : null,
     posts: store.posts,
-    categories: store.categories
+    Tags: store.Tags
 })
 
 //

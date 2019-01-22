@@ -1,14 +1,13 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Modal, ModalHeader, ModalBody, ModalFooter, Table } from 'reactstrap';
-import { addCategory, deleteCategory, editCategory } from '../actions/categories'
+import { addTag, deleteTag, editTag } from '../actions/tags'
 
-
-class Categories extends Component {
+class Tags extends Component {
 
 	state = {
 		modal: false,
-		category:
+		Tag:
 		{
 			id: '',
 			name: '',
@@ -24,7 +23,7 @@ class Categories extends Component {
 	toggleEdit = (id, name) => {
 		this.setState({
 			modal: true,
-			category: {
+			Tag: {
 				id: id,
 				name: name,
 			}
@@ -32,22 +31,22 @@ class Categories extends Component {
 	}
 
 	onChangeValue = (e) => {
-		let { category } = this.state;
+		let { Tag } = this.state;
 		let { value } = e.target;
-		category.name = value;
+		Tag.name = value;
 		this.setState({
-			category
+			Tag
 		})
 	}
 
 	onHandleSubmit = () => {
-		let { category } = this.state;
-		category.id === '' ?
-		this.props.addCategory(category):
-		this.props.editCategory(category)
+		let { Tag } = this.state;
+		Tag.id === '' ?
+		this.props.addTag(Tag):
+		this.props.editTag(Tag)
 		this.setState({
 			modal: false,
-			category:
+			Tag:
 			{
 				id: '',
 				name: '',
@@ -56,33 +55,33 @@ class Categories extends Component {
 	}
 	render() {
 
-		const { category } = this.state
+		const { Tag } = this.state
 		return (
 			<div>
 				<Table hover>
 					<thead>
 						<tr>
-							<th><button className="btn btn-sm btn-outline-secondary "  onClick={this.toggle}><i className="fa fa-plus">  Add category</i></button></th>
-							<th>Category</th>
+							<th><button className="btn btn-sm btn-outline-secondary "  onClick={this.toggle}><i className="fa fa-plus">  Add Tag</i></button></th>
+							<th>Tag</th>
 							<th>Edit</th>
 							<th>Delete</th>
 						</tr>
 					</thead>
-					{this.props.categories.loaded && this.props.categories.list.map(category =>
-						(<tbody key={category.id}>
+					{this.props.Tags.loaded && this.props.Tags.list.map(Tag =>
+						(<tbody key={Tag.id}>
 							<tr>
-								<th scope="row">{category.id}</th>
-								<td>{category.name}</td>
+								<th scope="row">{Tag.id}</th>
+								<td>{Tag.name}</td>
 								<td>
 									<button
-										onClick={() => this.toggleEdit(category.id, category.name)}
+										onClick={() => this.toggleEdit(Tag.id, Tag.name)}
 										className="btn btn-sm btn-outline-secondary"
 									><i className="fa fa-edit" /></button>
 								</td>
 								<td>
 									<button
 										className="btn btn-sm btn-outline-danger"
-										onClick={() => this.props.deleteCategory(category.id)}
+										onClick={() => this.props.deleteTag(Tag.id)}
 									> <i className="fa fa-trash-o" /> </button>
 								</td>
 							</tr>
@@ -91,12 +90,12 @@ class Categories extends Component {
 				
 				
 				<Modal isOpen={this.state.modal} toggle={this.toggle} className={this.props.className}>
-					<ModalHeader toggle={this.toggle}>Category name</ModalHeader>
+					<ModalHeader toggle={this.toggle}>Tag name</ModalHeader>
 					<ModalBody>
 						<input type='text'
 							maxLength={10}
 							name="body"
-							value={category.name}
+							value={Tag.name}
 							onChange={(e) => this.onChangeValue(e)}
 						/>
 					</ModalBody>
@@ -110,15 +109,15 @@ class Categories extends Component {
 	}
 }
 const putStateToProps = (store) => ({
-	categories: store.categories
+	Tags: store.Tags
 })
 
 
 const mapDispatchProps = (dispatch) => ({
-	addCategory: (category) => dispatch(addCategory(category)),
-	deleteCategory: (id) => dispatch(deleteCategory(id)),
-	editCategory: (category) => dispatch(editCategory(category))
+	addTag: (Tag) => dispatch(addTag(Tag)),
+	deleteTag: (id) => dispatch(deleteTag(id)),
+	editTag: (Tag) => dispatch(editTag(Tag))
 })
 
-export default connect(putStateToProps, mapDispatchProps)(Categories)
+export default connect(putStateToProps, mapDispatchProps)(Tags)
 

@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { getPosts } from '../actions/posts'
-import { getCategories } from '../actions/categories'
+import { getTags } from '../actions/tags'
 import Header from './Header'
 import { BrowserRouter } from 'react-router-dom'
 import Sidebar from './Sidebar'
@@ -14,7 +14,7 @@ class App extends Component {
 
     componentDidMount=()=>{
         this.props.getPosts()
-        this.props.getCategories()
+        this.props.getTags()
     }
 
     render() {
@@ -43,12 +43,12 @@ class App extends Component {
 }
 const putStateToProps = (store, ownprops) => ({
     posts: store.posts,
-    categories: store.categories
+    Tags: store.Tags
 })
 
 const mapDispatchProps = (dispatch) => ({
     getPosts: () => dispatch(getPosts()),
-    getCategories: () => dispatch(getCategories())
+    getTags: () => dispatch(getTags())
 })
 
 

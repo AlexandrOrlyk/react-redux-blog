@@ -9,12 +9,12 @@ const Sidebar = () => (
         <tr>
           <th >
             <Link
-              to='/categories'
+              to='/tags'
               className="nav-link "
               data-toggle="pill"
               role="tab"
               style={{ color: 'black', fontSize: '14pt' }}
-            > <i className="fa fa-th-list">  All categories</i>
+            > <i className="fa fa-th-list">  All tags</i>
             </Link>
           </th>
         </tr>
